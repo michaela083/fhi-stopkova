@@ -1,0 +1,11 @@
+{
+  "name": "fhi-stopkova",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaela083/fhi-stopkova.git"
+  }
+}
