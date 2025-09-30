@@ -1,5 +1,5 @@
-//m = telesna hmotnost v kilogramoch
-//h = telesna vyska v metroch
+/* m = telesna hmotnost v kilogramoch,
+h = telesna vyska v metroch */
 function bmiIndex(m: number, h: number){
     let BMI = m /(h ** 2);
     //console.log(BMI)
@@ -29,8 +29,21 @@ function bmiIndex(m: number, h: number){
     return `Vaše BMI je ${BMI.toFixed(2)}, čo predstavuje ${stav}. ${odporucanie}`;
 }
 
-console.log(bmiIndex(50, 1.75))
-console.log(bmiIndex(95, 1.90))
+// console.log(bmiIndex(50, 1.75))
+// console.log(bmiIndex(95, 1.90))
+
+/* Na vstupe su cele cisla, funkcia vypocita n-tu mocninu cisla a. */
+function mocnina(a: number, n: number): number{
+    return  a ** n;
+}
+
+// console.log(mocnina(-2, 5))
+
+
+
+
+
+
 
 
 
