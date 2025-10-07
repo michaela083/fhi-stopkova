@@ -1,7 +1,7 @@
 /* m = telesna hmotnost v kilogramoch,
 h = telesna vyska v metroch */
-function bmiIndex(m: number, h: number){
-    let BMI = m /(h ** 2);
+function bmiIndex(m: number, h: number) : string {
+    let BMI : number  = m /(h ** 2);
     //console.log(BMI)
 
     let minNormalnaHmotnost: number = 19 * (h ** 2);
@@ -34,8 +34,14 @@ console.log(bmiIndex(95, 1.90))
 
 
 
+function countLetters(){
+
+}
+
+
+
 /* Na vstupe su cele cisla, funkcia vypocita n-tu mocninu cisla a. */
-function mocnina(a: number, n: number): number{
+function mocnina(a: number, n: number): number {
     return  a ** n;
 }
 
@@ -55,7 +61,7 @@ function fibonacci(n: number) : number[]  {
         return numbers = [a, b]
     } else {
         numbers = [a, b];
-        for (let i = 2; i < n; i++){
+        for (let i : number = 2; i < n; i++){
             sum = a + b;
             numbers.push(sum);
             a = b;
@@ -87,6 +93,24 @@ console.log(faktorial(5))
 console.log(faktorial(0))
 
 
+
+function taxi(km: number, waiting: number, fine: string) : string {
+    let sum : number = 1.50;
+    if (km > 5) {
+        km -= 5;
+        sum += km * 0.75;
+    }
+    if (waiting > 0) {
+        sum += waiting * (10 / 60);
+    }
+    if (fine === "a"){
+        sum += 20;
+    }
+    return sum.toFixed(2);
+}
+
+console.log(taxi(15, 5, "n"))
+console.log(taxi(4, 5, "a"))
 
 
 
