@@ -34,10 +34,21 @@ console.log(bmiIndex(95, 1.90))
 
 
 
-function countLetters(){
+function countLetters(text : string){
+    text = text.toLowerCase();
+    let map : Map<string,number> = new Map();
 
+    if (text.length < 255){
+        for (const char of text){
+           map.set(char, (map.get(char) || 0) + 1);
+        }
+        return map;
+    } else {
+        return "zadajte platný text"
+    }
 }
 
+console.table(countLetters("Alabama"));
 
 
 /* Na vstupe su cele cisla, funkcia vypocita n-tu mocninu cisla a. */
