@@ -34,6 +34,7 @@ console.log(bmiIndex(95, 1.90))
 
 
 
+
 function countLetters(text : string){
     text = text.toLowerCase();
     let map : Map<string,number> = new Map();
@@ -51,12 +52,32 @@ function countLetters(text : string){
 console.table(countLetters("Alabama"));
 
 
+
+
+function isPalindrome(word: string){
+    word = word
+        .toLowerCase()
+        .replace(/ /g,'');
+    let n = word.length
+
+    for (let i = 0; i < n; i++,n--)
+        if (word[i] != word[n - 1])
+            return false;
+    return true;
+}
+
+console.log(isPalindrome("madam"))
+console.log(isPalindrome("kobyla ma maly bok"))
+console.log(isPalindrome("jelenovi pivo nelej"))
+
+
 /* Na vstupe su cele cisla, funkcia vypocita n-tu mocninu cisla a. */
 function mocnina(a: number, n: number): number {
     return  a ** n;
 }
 
 console.log(mocnina(-2, 5))
+
 
 
 
@@ -86,6 +107,7 @@ console.log(fibonacci(11));
 
 
 
+
 function faktorial(n:number) : number | string {
     let pom : number = 1;
 
@@ -102,6 +124,7 @@ function faktorial(n:number) : number | string {
 
 console.log(faktorial(5))
 console.log(faktorial(0))
+
 
 
 
@@ -126,5 +149,7 @@ console.log(taxi(4, 5, "a"))
 
 
 
+function sifraBaltimoresky(){
 
+}
 
