@@ -149,7 +149,22 @@ console.log(taxi(4, 5, "a"))
 
 
 
-function sifraBaltimoresky(){
+function sifraBaltimoresky(text: string): string {
+    text = text
+        .toUpperCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    const arr: string[] = text.split('');
+    const baltimoresky: string[] = ['B','A','L','T','I','M','O','R','E','S','K','Y']
+    const cisla :string[] = ['1','2','3','4','5','6','7','8','9','10','11','12']
 
+    for (let i = 0; i < arr.length; i++){
+        const index = baltimoresky.indexOf(arr[i]);
+        if (index !== -1){
+            arr[i] = cisla[index];
+        }
+    }
+    return arr.join('');
 }
 
+console.log(sifraBaltimoresky('To nemyslite vážne!'))
