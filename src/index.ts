@@ -1,8 +1,9 @@
-/* m = telesna hmotnost v kilogramoch,
-h = telesna vyska v metroch */
+/*
+* Funkcia vypočíta BMI index a vráti odporúčania.
+* Do vstupu ide m - telesná hmotnosť v kg a h - telesná výška v metroch.
+* */
 function bmiIndex(m: number, h: number) : string {
     let BMI : number  = m /(h ** 2);
-    //console.log(BMI)
 
     let minNormalnaHmotnost: number = 19 * (h ** 2);
     let maxNormalnahmotnost: number = 25 * (h ** 2);
@@ -34,7 +35,10 @@ console.log(bmiIndex(95, 1.90))
 
 
 
-
+/*
+* Funkcia dostane vetu (do 255 znakov) a spočíta počet výskytov jednotlivých písmen vo vete.
+* Vypíše prehľadnú tabuľku.
+* */
 function countLetters(text : string){
     text = text.toLowerCase();
     let map : Map<string,number> = new Map();
@@ -53,12 +57,15 @@ console.table(countLetters("Alabama"));
 
 
 
-
-function isPalindrome(word: string){
+/*
+* Funkcia pre vstupný reťazec overí, či ide o palindrom.
+* Program v slove/vo vete nerozlišuje malé a veľké písmená a ignoruje medzery.
+* */
+function isPalindrome(word: string) : boolean {
     word = word
         .toLowerCase()
         .replace(/ /g,'');
-    let n = word.length
+    let n : number = word.length
 
     for (let i = 0; i < n; i++,n--)
         if (word[i] != word[n - 1])
@@ -71,7 +78,11 @@ console.log(isPalindrome("kobyla ma maly bok"))
 console.log(isPalindrome("jelenovi pivo nelej"))
 
 
-/* Na vstupe su cele cisla, funkcia vypocita n-tu mocninu cisla a. */
+
+/*
+* Funkcia vypocita n-tu mocninu cisla a.
+* Na vstupe su cele cisla.
+* */
 function mocnina(a: number, n: number): number {
     return  a ** n;
 }
@@ -80,7 +91,9 @@ console.log(mocnina(-2, 5))
 
 
 
-
+/*
+* Funkcia vypíše zadaný počet Fibonacciho čísel.
+* */
 function fibonacci(n: number) : number[]  {
     let a : number = 0;
     let b : number = 1;
@@ -107,7 +120,10 @@ console.log(fibonacci(11));
 
 
 
-
+/*
+* Funkcia vypočíta n! = n. (n-1).(n-2)...1 po zadaní prirodzeného čísla n na vstupe.
+* Platí n > 0.
+* */
 function faktorial(n:number) : number | string {
     let pom : number = 1;
 
@@ -127,7 +143,10 @@ console.log(faktorial(0))
 
 
 
-
+/*
+* Funkciu na výpočet sumy, ktorú zaplatíte taxikárovi.
+* Do vstupu idú km - počet prejdených km, waiting - čakanie v min., fine - znečistenie (a/n).
+* */
 function taxi(km: number, waiting: number, fine: string) : string {
     let sum : number = 1.50;
     if (km > 5) {
@@ -148,7 +167,9 @@ console.log(taxi(4, 5, "a"))
 
 
 
-
+/*
+* Funkcia na zašifrovanie zadanej vety pomocou šifry BALTIMORESKY.
+* */
 function sifraBaltimoresky(text: string): string {
     text = text
         .toUpperCase()
