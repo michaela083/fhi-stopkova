@@ -1,8 +1,8 @@
 {
   "name": "fhi-stopkova",
-  "main": "src/index.ts",
+  "main": "src/ulohy.ts",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/ulohy.ts"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
