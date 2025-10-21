@@ -8,4 +8,8 @@ export class Person {
         this.name = name;
         this.phone = phone;
     }
+
+    getName(): string {
+        return this.name;
+    }
 }
