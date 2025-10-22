@@ -13,7 +13,6 @@ export class User extends Person {
         this.orders = [];
     }
 
-    // Vytvorenie objednávky
     createOrder(orderId: string, restaurant: Restaurant, products: Product[]): Order {
         const order = new Order(orderId, this, restaurant, products);
         this.orders.push(order);

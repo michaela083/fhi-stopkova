@@ -11,7 +11,7 @@ export class DeliveryGuy extends Person {
         this.deliveredOrders = [];
     }
 
-    // Prijme objednávku
+    // prijme objednávku
     acceptOrder(order: Order): boolean {
         if (order.acceptByDeliveryGuy(this)) {
             this.activeOrders.push(order);
@@ -20,12 +20,12 @@ export class DeliveryGuy extends Person {
         return false;
     }
 
-    // Začne doručovať
+    // začne doručovať
     startDelivery(order: Order): boolean {
         return order.startDelivery();
     }
 
-    // Doručí objednávku
+    // doručí objednávku
     deliverOrder(order: Order): boolean {
         if (order.completeDelivery()) {
             const index = this.activeOrders.indexOf(order);

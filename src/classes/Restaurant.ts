@@ -19,8 +19,12 @@ export class Restaurant {
         return product;
     }
 
-    getMenu(): Product[] {
-        return [...this.menu]; // vráti kópiu
+    getMenu(): string {
+        const productList = this.menu
+            .map(product => `${product.getName()} - ${product.getPrice()}€`)
+            .join('\n');
+
+        return `${this.name}\n${productList}`;
     }
 
     getName(): string {

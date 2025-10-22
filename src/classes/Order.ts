@@ -67,29 +67,6 @@ export class Order {
         return this.products.reduce((sum, product) => sum + product.getPrice(), 0);
     }
 
-    getStatus(): OrderStatus {
-        return this.status;
-    }
-
-    getOrderId(): string {
-        return this.orderId;
-    }
-
-    getUser(): User {
-        return this.user;
-    }
-
-    getRestaurant(): Restaurant {
-        return this.restaurant;
-    }
-
-    getProducts(): Product[] {
-        return [...this.products];
-    }
-
-    getDeliveryGuy(): DeliveryGuy | null {
-        return this.deliveryGuy;
-    }
 
     getOrderInfo(): string {
         const productNames = this.products.map(p => p.getName()).join(', ');
