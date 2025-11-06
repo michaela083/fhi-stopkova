@@ -1,75 +1,69 @@
-import { User } from './User';
-import { Restaurant } from './Restaurant';
-import { Product } from './Product';
-import { DeliveryGuy } from './DeliveryGuy';
+import {OrderItem} from "./OrderItem";
 
 export enum OrderStatus {
-    PENDING = 'PENDING',           // čaká na kuriéra
-    ACCEPTED = 'ACCEPTED',         // kuriér prijal
-    IN_DELIVERY = 'IN_DELIVERY',   // kuriér doručuje
-    DELIVERED = 'DELIVERED',       // doručené
-    CANCELLED = 'CANCELLED'        // zrušené
+    PENDING = "PENDING",
+    PREPARING = "PREPARING",
+    READY = "READY",
+    SERVED = "SERVED",
+    COMPLETED = "COMPLETED",
+    CANCELLED = "CANCELLED"
 }
 
 export class Order {
-    private orderId: string;
-    private user: User;
-    private restaurant: Restaurant;
-    private products: Product[];
-    private deliveryGuy: DeliveryGuy | null;
-    private status: OrderStatus;
+    id: number;
+    tableNumber: number;
+    items: OrderItem[];
+    status: OrderStatus;
+    createdAt: Date;
+    notes?: string;
 
-
-    constructor(orderId: string, user: User, restaurant: Restaurant, products: Product[]) {
-        this.orderId = orderId;
-        this.user = user;
-        this.restaurant = restaurant;
-        this.products = products;
-        this.deliveryGuy = null;
+    constructor(id: number, tableNumber: number, notes?: string) {
+        this.id = id;
+        this.tableNumber = tableNumber;
+        this.items = [];
         this.status = OrderStatus.PENDING;
+        this.createdAt = new Date();
+        this.notes = notes;
     }
 
-    // Kuriér prijme objednávku
-    acceptByDeliveryGuy(deliveryGuy: DeliveryGuy): boolean {
-        if (this.status !== OrderStatus.PENDING) {
-            console.log('Objednávka už bola prijatá alebo doručená');
-            return false;
-        }
-        this.deliveryGuy = deliveryGuy;
-        this.status = OrderStatus.ACCEPTED;
-        console.log(`Objednávka ${this.orderId} prijatá kuriérom ${deliveryGuy.getName()}`);
-        return true;
+    setTableNumber(tableNumber: number) {
+        this.tableNumber = tableNumber;
     }
 
-    // Kuriér začne doručovať
-    startDelivery(): boolean {
-        if (this.status !== OrderStatus.ACCEPTED) {
-            console.log('Objednávka musí byť najprv prijatá kuriérom');
-            return false;
-        }
-        this.status = OrderStatus.IN_DELIVERY;
-        console.log(`Objednávka ${this.orderId} je na ceste`);
-        return true;
+    setItems(items: OrderItem[]) {
+        this.items = items;
     }
 
-    // Kuriér doručí objednávku
-    completeDelivery(): boolean {
-        if (this.status !== OrderStatus.IN_DELIVERY) {
-            console.log('Objednávka nie je v doručovaní');
-            return false;
-        }
-        this.status = OrderStatus.DELIVERED;
-        console.log(`Objednávka ${this.orderId} doručená!`);
-        return true;
+    setStatus(status: OrderStatus) {
+        this.status = status;
     }
 
-    getTotalPrice(): number {
-        return this.products.reduce((sum, product) => sum + product.getPrice(), 0);
+    setNotes(notes?: string) {
+        this.notes = notes;
     }
 
-
-    getOrderInfo(): string {
-        const productNames = this.products.map(p => p.getName()).join(', ');
-        return `Objednávka ${this.orderId}: ${productNames} z ${this.restaurant.getName()} - Status: ${this.status}`;
+    getId(): number {
+        return this.id;
     }
+
+    addItem(item: OrderItem): void {
+        this.items.push(item);
+    }
+
+    removeItem(itemId: number): void {
+        this.items = this.items.filter(item => item.id !== itemId);
+    }
+
+    getTotalInCents(): number {
+        return this.items.reduce((total, item) => total + item.getSubtotal(), 0);
+    }
+
+    getFormattedTotal(): string {
+        return `$${(this.getTotalInCents() / 100).toFixed(2)}`;
+    }
+
+    updateStatus(newStatus: OrderStatus): void {
+        this.status = newStatus;
+    }
+
 }

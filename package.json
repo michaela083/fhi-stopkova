@@ -5,7 +5,11 @@
     "start": "ts-node src/ulohy.ts"
   },
   "devDependencies": {
+    "@types/express": "^5.0.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

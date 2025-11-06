@@ -12,16 +12,18 @@ export class Restaurant {
         this.phone = phone;
         this.menu = [];
     }
-
-    addProduct(name: string, price: number): Product {
-        const product = new Product(name, price, this);
+    /*
+    addProduct(name: string, price: number, category: string, description?: string): Product {
+        const productId = `p${this.menu.length + 1}`;
+        const priceInCents = Math.round(price * 100);
+        const product = new Product(productId, category, name, priceInCents, description);
         this.menu.push(product);
         return product;
     }
 
     getMenu(): string {
         const productList = this.menu
-            .map(product => `${product.getName()} - ${product.getPrice()}€`)
+            .map(product => `${product.getName()} - ${product.getFormattedPrice()}€`)
             .join('\n');
 
         return `${this.name}\n${productList}`;
@@ -30,4 +32,5 @@ export class Restaurant {
     getName(): string {
         return this.name;
     }
+     */
 }
