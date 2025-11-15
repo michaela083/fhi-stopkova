@@ -2,14 +2,19 @@
   "name": "fhi-stopkova",
   "main": "src/ulohy.ts",
   "scripts": {
-    "start": "ts-node src/ulohy.ts"
+    "start": "ts-node src/ulohy.ts",
+    "build:sass": "cd ./templates && sass main.scss main.css --quiet"
   },
   "devDependencies": {
     "@types/express": "^5.0.4",
+    "sass": "^1.93.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
     "express": "^5.1.0"
   }
 }

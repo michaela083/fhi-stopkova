@@ -4,30 +4,25 @@ export enum OrderStatus {
     PENDING = "PENDING",
     PREPARING = "PREPARING",
     READY = "READY",
-    SERVED = "SERVED",
     COMPLETED = "COMPLETED",
     CANCELLED = "CANCELLED"
 }
 
 export class Order {
     id: number;
-    tableNumber: number;
+    userId: number;
     items: OrderItem[];
     status: OrderStatus;
     createdAt: Date;
     notes?: string;
 
-    constructor(id: number, tableNumber: number, notes?: string) {
+    constructor(id: number, userId: number, notes?: string) {
         this.id = id;
-        this.tableNumber = tableNumber;
+        this.userId = userId;
         this.items = [];
         this.status = OrderStatus.PENDING;
         this.createdAt = new Date();
         this.notes = notes;
-    }
-
-    setTableNumber(tableNumber: number) {
-        this.tableNumber = tableNumber;
     }
 
     setItems(items: OrderItem[]) {

@@ -4,11 +4,9 @@ import { Order } from './Order';
 import {OrderItem} from "./OrderItem";
 
 export class User extends Person {
-    private orders: Order[];
 
-    constructor(id: number, name: string) {
-        super(id, name);
-        this.orders = [];
+    constructor(id: number, name: string, surname: string) {
+        super(id, name, surname);
     }
 
     getId(): number {
@@ -17,16 +15,6 @@ export class User extends Person {
 
     setName(name: string): void {
         this.name = name;
-    }
-
-    createOrder(tableNumber: number, notes?: string): Order {
-        const order = new Order(this.id, tableNumber, notes);
-        this.orders.push(order);
-        return order;
-    }
-
-    getOrders(): Order[] {
-        return [...this.orders];
     }
 
 }

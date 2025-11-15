@@ -1,4 +1,4 @@
-export class Category {
+export class Category { //toto zapracovat
     id: number;
     name: string;
     description?: string;
