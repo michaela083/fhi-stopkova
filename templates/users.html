@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Používatelia</title>
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">Naša Jedáleň</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,26 +18,27 @@
                     <a class="nav-link" href="#">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Users</a>
+                    <a class="nav-link" href="#">Používatelia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="#">Objednávky</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container">
-    <h1 class="mt-5">Users</h1>
+    <h1 class="mt-5">Používatelia</h1>
     <div class="card shadow mt-3">
         <div class="card-body">
             <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Firstname</th>
-                    <th scope="col">Surname</th>
+                    <th scope="col">Meno</th>
+                    <th scope="col">Priezvisko</th>
                     <th scope="col">Email</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -45,27 +46,42 @@
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>mark.otto@gmail.com</td>
+                    <td class="text-end">
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-three-dots"></i></button>
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>Thornton</td>
-                    <td>@fat</td>
+                    <td>jacob.thornton@gmail.com</td>
+                    <td class="text-end">
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-three-dots"></i></button>
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
                     <td>John</td>
                     <td>Doe</td>
-                    <td>@social</td>
+                    <td>john.doe@gmail.com</td>
+                    <td class="text-end">
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-three-dots"></i></button>
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
             <div class="row justify-content-end">
                 <div class="col-auto">
-                    <button class="btn btn-primary">
-                        <i class="bi bi-plus-lg"></i>
-                        Pridať
+                    <button type="button" class="btn btn-outline-primary">
+                        <i class="bi bi-plus-lg "></i>
+                        Pridať používateľa
                     </button>
                 </div>
             </div>

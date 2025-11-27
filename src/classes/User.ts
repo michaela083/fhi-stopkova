@@ -5,8 +5,8 @@ import {OrderItem} from "./OrderItem";
 
 export class User extends Person {
 
-    constructor(id: number, name: string, surname: string) {
-        super(id, name, surname);
+    constructor(id: number, name: string, surname: string, email: string) {
+        super(id, name, surname, email);
     }
 
     getId(): number {

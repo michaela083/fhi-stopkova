@@ -28,6 +28,8 @@ export const createUser = (req: Request, res: Response) => {
     const user = new User(
         storage.getNextId(),
         req.body.name,
+        req.body.surname,
+        req.body.email
     );
     storage.addUser(user);
     res.status(201).send(user.getId());

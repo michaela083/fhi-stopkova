@@ -41,11 +41,13 @@ export const updateOrderById = (req: Request, res: Response) => {
     if (!order) {
         return;
     }
-
+/*
     const tableNumber = req.body.tableNumber;
     if (tableNumber !== undefined) {
         order.setTableNumber(tableNumber);
     }
+
+ */
 
     const items = req.body.items;
     if (items !== undefined) {

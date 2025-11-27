@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Objednávky</title>
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">Naša Jedáleň</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,29 +18,30 @@
                     <a class="nav-link" href="#">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Users</a>
+                    <a class="nav-link" href="#">Používatelia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="#">Objednávky</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container">
-    <h1 class="mt-5">Orders</h1>
+    <h1 class="mt-5">Objednávky</h1>
     <div class="card shadow mt-3">
         <div class="card-body">
-            <table class="table">
+            <table class="table align-middle">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Surname</th>
-                    <th scope="col">Item</th>
+                    <th scope="col">Meno</th>
+                    <th scope="col">Priezvisko</th>
+                    <th scope="col">Položka</th>
+                    <th scope="col">Cena</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Details</th> <!--toto rozbali items a notes, alebo to tam nedam-->
+                    <th scope="col">Dátum</th>
+                    <th class="text-end"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,34 +50,65 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>Pizza</td>
-                    <td>PENDING</td>
-                    <td>date</td>
-                    <td><i class="bi bi-three-dots"></i></td>
+                    <td><strong>8.50 €</strong></td>
+
+                    <td>
+                        <span class="badge text-bg-secondary">PENDING</span>
+                    </td>
+
+                    <td>12.11.2024</td>
+
+                    <td class="text-end">
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-three-dots"></i></button>
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
+
                 <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>Pasta</td>
-                    <td>PENDING</td>
-                    <td>date</td>
-                    <td><i class="bi bi-three-dots"></i></td>
+                    <td><strong>6.20 €</strong></td>
+                    <td><span class="badge text-bg-secondary">PREPARING</span></td>
+                    <td>12.11.2024</td>
+                    <td class="text-end">
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-three-dots"></i></button>
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
+
                 <tr>
                     <th scope="row">3</th>
                     <td>John</td>
                     <td>Doe</td>
-                    <td>Salat</td>
-                    <td>PENDING</td>
-                    <td>date</td>
-                    <td><i class="bi bi-three-dots"></i></td>
+                    <td>Šalát</td>
+                    <td><strong>4.30 €</strong></td>
+                    <td><span class="badge text-bg-secondary">READY</span></td>
+                    <td>12.11.2024</td>
+                    <td class="text-end">
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-three-dots"></i></button>
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                    </td>
                 </tr>
+
                 </tbody>
             </table>
+
+            <div class="row justify-content-end">
+                <div class="col-auto">
+                    <button type="button" class="btn btn-outline-primary">
+                        <i class="bi bi-plus-lg"></i>
+                        Pridať objednávku
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 
 <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
