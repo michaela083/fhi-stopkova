@@ -1,16 +1,14 @@
 export class Product {
     id: number;
-    category: string;
     name: string;
-    priceInCents: number;
-    description?: string;
+    price: number;
+    description: string;
 
 
-    constructor(id: number, category: string,  name: string, priceInCents: number, description?: string) {
+    constructor(id: number,  name: string, price: number, description: string) {
         this.id = id;
-        this.category = category;
         this.name = name;
-        this.priceInCents = priceInCents;
+        this.price = price;
         this.description = description;
     }
 
@@ -22,20 +20,12 @@ export class Product {
         return this.name;
     }
 
-    getFormattedPrice(): string {
-        return `${(this.priceInCents / 100).toFixed(2)}`;
-    }
-
-    setCategory(category: string): void {
-        this.category = category;
-    }
-
     setName(name: string): void {
         this.name = name;
     }
 
-    setPriceInCents(priceInCents: number): void {
-        this.priceInCents = priceInCents;
+    setPrice(price: number): void {
+        this.price = price;
     }
 
     setDescription(description: string): void {

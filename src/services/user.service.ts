@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import {Storage} from '../storage/Storage';
 import {User} from '../classes/User';
-import {compareId, gatValidId, getObject} from '../utils/validations.utils';
+import {compareId, getValidId, getObject} from '../utils/validations.utils';
 
 const storage = Storage.getInstance();
 
@@ -10,7 +10,7 @@ export const getAllUsers = (req: Request, res: Response) => {
 }
 
 export const getUserById = (req: Request, res: Response) => {
-    const id = gatValidId(req, res);
+    const id = getValidId(req, res);
 
     if (!id) {
         return;
@@ -36,7 +36,7 @@ export const createUser = (req: Request, res: Response) => {
 }
 
 export const updateUserById = (req: Request, res: Response) => {
-    const id = gatValidId(req, res);
+    const id = getValidId(req, res);
 
     if (!id) {
         return;
@@ -56,7 +56,7 @@ export const updateUserById = (req: Request, res: Response) => {
 }
 
 export const deleteUserById = (req: Request, res: Response) => {
-    const id = gatValidId(req, res);
+    const id = getValidId(req, res);
 
     if (!id) {
         return;

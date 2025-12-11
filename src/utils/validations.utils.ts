@@ -4,7 +4,7 @@ export function compareId<T extends {getId: () => number}>(item: T, id: number):
     return item.getId() === id;
 }
 
-export function gatValidId(req: Request, res: Response): number | null {
+export function getValidId(req: Request, res: Response): number | null {
     const id = Number(req.params.id);
 
     if (isNaN(id)) {

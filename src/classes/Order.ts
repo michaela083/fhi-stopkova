@@ -10,52 +10,61 @@ export enum OrderStatus {
 
 export class Order {
     id: number;
-    userId: number;
-    items: OrderItem[];
+    name: string;
+    surname: string;
+    price: number;
+    item: string;
     status: OrderStatus;
-    createdAt: Date;
-    notes?: string;
+    date: string;
 
-    constructor(id: number, userId: number, notes?: string) {
+    constructor(id: number, name: string, surname: string, price: number, item: string, status: OrderStatus = OrderStatus.PENDING, date: string) {
         this.id = id;
-        this.userId = userId;
-        this.items = [];
+        this.name = name;
+        this.surname = surname;
+        this.price = price;
+        this.item = item;
         this.status = OrderStatus.PENDING;
-        this.createdAt = new Date();
-        this.notes = notes;
+        this.date = date;
     }
 
-    setItems(items: OrderItem[]) {
-        this.items = items;
+    setName(name: string) {
+        this.name = name;
+    }
+
+    setSurname(surname: string) {
+        this.surname = surname;
+    }
+
+    setPrice(price: number) {
+        this.price = price;
+    }
+
+    setItems(item: string) {
+        this.item = item;
     }
 
     setStatus(status: OrderStatus) {
         this.status = status;
     }
 
-    setNotes(notes?: string) {
-        this.notes = notes;
+    setDate(date: string) {
+        this.date = date;
     }
+
 
     getId(): number {
         return this.id;
     }
 
+    /*
     addItem(item: OrderItem): void {
-        this.items.push(item);
+        this.item.push(item);
     }
 
     removeItem(itemId: number): void {
-        this.items = this.items.filter(item => item.id !== itemId);
+        this.item = this.item.filter(item => item.id !== itemId);
     }
-
-    getTotalInCents(): number {
-        return this.items.reduce((total, item) => total + item.getSubtotal(), 0);
-    }
-
-    getFormattedTotal(): string {
-        return `$${(this.getTotalInCents() / 100).toFixed(2)}`;
-    }
+     */
 
     updateStatus(newStatus: OrderStatus): void {
         this.status = newStatus;

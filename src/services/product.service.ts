@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import {Storage} from '../storage/Storage';
 import {Product} from '../classes/Product';
-import {compareId, gatValidId, getObject} from '../utils/validations.utils';
+import {compareId, getValidId, getObject} from '../utils/validations.utils';
 
 const storage = Storage.getInstance();
 
@@ -10,7 +10,7 @@ export const getAllProducts = (req: Request, res: Response) => {
 }
 
 export const getProductById = (req: Request, res: Response) => {
-    const id = gatValidId(req, res);
+    const id = getValidId(req, res);
 
     if (!id) {
         return;
@@ -27,9 +27,8 @@ export const getProductById = (req: Request, res: Response) => {
 export const createProduct = (req: Request, res: Response) => {
     const product = new Product(
         storage.getNextId(),
-        req.body.category,
         req.body.name,
-        req.body.priceInCents,
+        req.body.price,
         req.body.description
     );
     storage.addProducts(product);
@@ -37,7 +36,7 @@ export const createProduct = (req: Request, res: Response) => {
 }
 
 export const updateProductById = (req: Request, res: Response) => {
-    const id = gatValidId(req, res);
+    const id = getValidId(req, res);
 
     if (!id) {
         return;
@@ -53,14 +52,9 @@ export const updateProductById = (req: Request, res: Response) => {
         product.setName(name);
     }
 
-    const category = req.body.category;
-    if (category) {
-        product.setCategory(category);
-    }
-
-    const priceInCents = req.body.priceInCents;
-    if (priceInCents !== undefined) {
-        product.setPriceInCents(priceInCents);
+    const price = req.body.price;
+    if (price !== undefined) {
+        product.setPrice(price);
     }
 
     const description = req.body.description;
@@ -72,7 +66,7 @@ export const updateProductById = (req: Request, res: Response) => {
 }
 
 export const deleteProductById = (req: Request, res: Response) => {
-    const id = gatValidId(req, res);
+    const id = getValidId(req, res);
 
     if (!id) {
         return;

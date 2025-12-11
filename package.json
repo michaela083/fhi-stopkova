@@ -2,7 +2,7 @@
   "name": "fhi-stopkova",
   "main": "src/ulohy.ts",
   "scripts": {
-    "start": "ts-node src/ulohy.ts",
+    "start": "ts-node src/index.ts",
     "build:sass": "cd ./templates && sass main.scss main.css --quiet"
   },
   "devDependencies": {
